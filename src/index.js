@@ -1,6 +1,11 @@
 'use strict';
 
 function getGCD(a, b) {
+    if (a === 0 && b === 0) {
+        console.log('GCD(0,0) is defined as 0 by convention');
+        return 0;
+    }
+
     a = Math.abs(Math.round(a));
     b = Math.abs(Math.round(b));
 
@@ -10,14 +15,5 @@ function getGCD(a, b) {
     return a;
 }
 
-console.log(getGCD(10, 15));
-console.log(getGCD(10, 0));
 console.log(getGCD(0, 0));
-console.log(getGCD(0, 10));
-console.log(getGCD(-10, -15));
-console.log(getGCD(10, -15));
-console.log(getGCD(0, -15));
-console.log(getGCD(-15, 0));
-console.log(getGCD(-14.6, 0));
-console.log(getGCD(0, -11.3));
 console.log(getGCD(192, 72));
