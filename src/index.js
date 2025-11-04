@@ -4,14 +4,10 @@ function getGCD(a, b) {
     a = Math.abs(Math.round(a));
     b = Math.abs(Math.round(b));
 
-    if (a === 0 && b === 0) {
-        console.log('GCD(0,0) is defined as 0 by convention');
-        return 0;
+    while (b !== 0) {
+        [a, b] = [b, a % b];
     }
-    if (a === 0) return b;
-    if (b === 0) return a;
-
-    return getGCD(b, a % b);
+    return a;
 }
 
 console.log(getGCD(10, 15));
