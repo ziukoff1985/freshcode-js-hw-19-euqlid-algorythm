@@ -1,17 +1,13 @@
 'use strict';
 
 const ERR_NOT_NUMBER = 'Arguments must be numbers';
-const ERR_NOT_FINITE = 'Arguments must be finite numbers';
 const ERR_NOT_INTEGER = 'Arguments must be integers';
 const ERR_NOT_POSITIVE = 'Arguments must be positive integers greater than 0';
 
 // Eqlid Algorithm with loop
 function getGCDwithLoop(a, b) {
-    if (typeof a !== 'number' || typeof b !== 'number') {
-        throw new TypeError(ERR_NOT_NUMBER);
-    }
     if (!Number.isFinite(a) || !Number.isFinite(b)) {
-        throw new RangeError(ERR_NOT_FINITE);
+        throw new TypeError(ERR_NOT_NUMBER);
     }
     if (!Number.isInteger(a) || !Number.isInteger(b)) {
         throw new TypeError(ERR_NOT_INTEGER);
@@ -34,11 +30,8 @@ try {
 
 // Eqlid Algorithm with recursion
 function getGCDwithRecursion(a, b) {
-    if (typeof a !== 'number' || typeof b !== 'number') {
-        throw new TypeError(ERR_NOT_NUMBER);
-    }
     if (!Number.isFinite(a) || !Number.isFinite(b)) {
-        throw new RangeError(ERR_NOT_FINITE);
+        throw new TypeError(ERR_NOT_NUMBER);
     }
     if (!Number.isInteger(a) || !Number.isInteger(b)) {
         throw new TypeError(ERR_NOT_INTEGER);
