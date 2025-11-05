@@ -1,19 +1,9 @@
 'use strict';
 
-const ERR_NOT_NUMBER = 'Arguments must be numbers';
-const ERR_NOT_INTEGER = 'Arguments must be integers';
-const ERR_NOT_POSITIVE = 'Arguments must be positive integers greater than 0';
-
-// Eqlid Algorithm with loop
+// Euclid Algorithm with loop
 function getGCDwithLoop(a, b) {
-    if (!Number.isFinite(a) || !Number.isFinite(b)) {
-        throw new TypeError(ERR_NOT_NUMBER);
-    }
-    if (!Number.isInteger(a) || !Number.isInteger(b)) {
-        throw new TypeError(ERR_NOT_INTEGER);
-    }
-    if (a <= 0 || b <= 0) {
-        throw new RangeError(ERR_NOT_POSITIVE);
+    if (!Number.isInteger(a) || !Number.isInteger(b) || a <= 0 || b <= 0) {
+        throw new Error('Arguments must be positive integers greater than 0');
     }
     while (b !== 0) {
         [a, b] = [b, a % b];
@@ -21,23 +11,22 @@ function getGCDwithLoop(a, b) {
     return a;
 }
 
-try {
-    console.log(getGCDwithLoop(192, 72));
-    console.log(getGCDwithLoop(NaN, 72));
-} catch (error) {
-    console.log(error);
+function testGCDwithLoop(a, b) {
+    try {
+        console.log(`getGCDwithLoop(${a}, ${b}) →`, getGCDwithLoop(a, b));
+    } catch (error) {
+        console.log(`getGCDwithLoop(${a}, ${b}) → Error:`, error.message);
+    }
 }
 
-// Eqlid Algorithm with recursion
+testGCDwithLoop(192, 72);
+testGCDwithLoop('192', 72);
+testGCDwithLoop(NaN, 72);
+
+// Euclid Algorithm with recursion
 function getGCDwithRecursion(a, b) {
-    if (!Number.isFinite(a) || !Number.isFinite(b)) {
-        throw new TypeError(ERR_NOT_NUMBER);
-    }
-    if (!Number.isInteger(a) || !Number.isInteger(b)) {
-        throw new TypeError(ERR_NOT_INTEGER);
-    }
-    if (a <= 0 || b <= 0) {
-        throw new RangeError(ERR_NOT_POSITIVE);
+    if (!Number.isInteger(a) || !Number.isInteger(b) || a <= 0 || b <= 0) {
+        throw new Error('Arguments must be positive integers greater than 0');
     }
     function gcd(x, y) {
         return y === 0 ? x : gcd(y, x % y);
@@ -45,9 +34,14 @@ function getGCDwithRecursion(a, b) {
     return gcd(a, b);
 }
 
-try {
-    console.log(getGCDwithRecursion(156, 104));
-    console.log(getGCDwithRecursion(12.5, 72));
-} catch (error) {
-    console.log(error);
+function testGCDwithRecursion(a, b) {
+    try {
+        console.log(`getGCDwithLoop(${a}, ${b}) →`, getGCDwithLoop(a, b));
+    } catch (error) {
+        console.log(`getGCDwithLoop(${a}, ${b}) → Error:`, error.message);
+    }
 }
+
+testGCDwithRecursion(306, 102);
+testGCDwithRecursion(Infinity, 72);
+testGCDwithRecursion(192, 72.5);
