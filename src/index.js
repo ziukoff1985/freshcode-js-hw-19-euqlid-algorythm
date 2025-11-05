@@ -13,9 +13,9 @@ function getGCDwithLoop(a, b) {
 
 function testGCDwithLoop(a, b) {
     try {
-        console.log(`getGCDwithLoop(${a}, ${b}) →`, getGCDwithLoop(a, b));
+        console.log(`Arguments:(${a}, ${b}) →`, getGCDwithLoop(a, b));
     } catch (error) {
-        console.log(`getGCDwithLoop(${a}, ${b}) → Error:`, error.message);
+        console.log(`Arguments:(${a}, ${b}) → Error:`, error.message);
     }
 }
 
@@ -28,17 +28,14 @@ function getGCDwithRecursion(a, b) {
     if (!Number.isInteger(a) || !Number.isInteger(b) || a <= 0 || b <= 0) {
         throw new Error('Arguments must be positive integers greater than 0');
     }
-    function gcd(x, y) {
-        return y === 0 ? x : gcd(y, x % y);
-    }
-    return gcd(a, b);
+    return a % b === 0 ? b : getGCDwithRecursion(b, a % b);
 }
 
 function testGCDwithRecursion(a, b) {
     try {
-        console.log(`getGCDwithLoop(${a}, ${b}) →`, getGCDwithLoop(a, b));
+        console.log(`Arguments:(${a}, ${b}) →`, getGCDwithRecursion(a, b));
     } catch (error) {
-        console.log(`getGCDwithLoop(${a}, ${b}) → Error:`, error.message);
+        console.log(`Arguments:(${a}, ${b}) → Error:`, error.message);
     }
 }
 
