@@ -13,7 +13,7 @@ function getGCDwithLoop(a, b) {
 
 function testGCDwithLoop(a, b) {
     try {
-        console.log(`Arguments:(${a}, ${b}) →`, getGCDwithLoop(a, b));
+        console.log(`GCD:(${a}, ${b}) →`, getGCDwithLoop(a, b));
     } catch (error) {
         console.log(`Arguments:(${a}, ${b}) → Error:`, error.message);
     }
@@ -33,7 +33,7 @@ function getGCDwithRecursion(a, b) {
 
 function testGCDwithRecursion(a, b) {
     try {
-        console.log(`Arguments:(${a}, ${b}) →`, getGCDwithRecursion(a, b));
+        console.log(`GCD:(${a}, ${b}) →`, getGCDwithRecursion(a, b));
     } catch (error) {
         console.log(`Arguments:(${a}, ${b}) → Error:`, error.message);
     }
